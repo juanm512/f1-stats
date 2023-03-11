@@ -1,13 +1,15 @@
-import { View, ScrollView, Text, Image as ImageN } from "react-native"
+import { View, ScrollView, Text, Image as ImageN, TouchableOpacity } from "react-native"
 import { Image } from "expo-image"
 import { LinearGradient } from "expo-linear-gradient"
-import { AntDesign } from "@expo/vector-icons"
+import { Link } from "react-router-native"
 
-import SubTitleWithBorder from "../components/SubTitleWithBorder"
+import { SubTitle, SubTitleWithBorder } from "../components/SubTitle"
+import { TitleWithArrow } from "../components/Title"
 import Podium from "../components/Podium"
-// import DriversList from "../components/Home/DriversList"
+import { SimpleMap } from "../components/SimpleMap"
+import { FastestPitStop } from "../components/FastestPitStop"
 
-import { DriversImages, CarsImages } from "../utils/getImages.js"
+import { DriversImages } from "../utils/getImages.js"
 
 const Home = () => {
   return (
@@ -62,29 +64,33 @@ const Home = () => {
         -Fastest lap
         -Fastest pit stop
       */}
-      <View>
-        <SubTitleWithBorder title="Previous race - Round 1" />
-        <View
+      <View
+        style={{
+          paddingVertical: 10
+        }}
+      >
+        <SubTitleWithBorder subTitle="Previous race - Round 1" titlePos="left" />
+        <Link
+          replace={TouchableOpacity}
+          to="/"
           style={{
-            flexDirection: "row",
-            alignItems: "center"
+            alignItems: "start",
+            paddingVertical: 20,
+            marginHorizontal: 20
           }}
         >
-          <Text style={{
-            fontFamily: "Formula1-Bold",
-            color: "#fefefe",
-            fontSize: 20,
-            fontWeight: "500",
-            textAlign: "left",
-            padding: 20
-          }}
-          >
-            Bahrain Grand Prix
-          </Text>
-          <AntDesign
-            name="right" size={24} color="#f61d00"
-          />
-        </View>
+          <>
+            <TitleWithArrow>
+              Bahrain Grand Prix
+            </TitleWithArrow>
+            <SubTitle
+              subTitle="Sun 05 of March" color="#f61d00"
+            />
+          </>
+        </Link>
+        <Link to="/" style={{ marginHorizontal: 20 }}>
+          <SimpleMap />
+        </Link>
         <Podium
           firstPlace={{
             name: "Max Ver",
@@ -105,149 +111,68 @@ const Home = () => {
             team_color: "#358C75"
           }}
         />
-        <View style={{
-          fontSize: 20,
-          fontWeight: "bold",
-          textAlign: "left",
-          marginHorizontal: 20,
-          marginVertical: 30,
-          paddingHorizontal: 20,
-          paddingVertical: 20,
-          borderRadius: 10
-        }}
-        >
-          <LinearGradient
-            colors={["#fc0", "transparent"]}
-            style={{
-              position: "absolute",
-              left: 0,
-              top: 0,
-              zIndex: -1,
-              height: "100%",
-              width: "100%",
-              borderRadius: 10
-            }}
-          />
-          <Text style={{
-            fontFamily: "Formula1-Regular",
-            color: "#fff",
-            fontSize: 20,
-            textAlign: "center",
-            marginBottom: 10
-          }}
-          >
-            Fastest Pit Stop
-          </Text>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "start",
-              justifyContent: "space-between"
-            }}
-          >
-            <View style={{
-              flexDirection: "column",
-              alignItems: "start"
-            }}
-            >
-              <View style={{
-                flexDirection: "row",
-                alignItems: "start"
-              }}
-              >
-                <Text style={{
-                  fontFamily: "Formula1-Bold",
-                  color: "#fff",
-                  fontSize: 50,
-                  fontWeight: "bold",
-                  textAlign: "left"
-                }}
-                >
-                  1
-                </Text>
-                <Text style={{
-                  fontFamily: "Formula1-Bold",
-                  color: "#fff",
-                  fontSize: 30,
-                  fontWeight: "bold",
-                  textAlign: "left"
-                }}
-                >
-                  st
-                </Text>
-              </View>
-              <Text style={{
-                fontFamily: "Formula1-Bold",
-                color: "#f61d00",
-                fontSize: 25,
-                fontWeight: "bold",
-                textAlign: "left"
-              }}
-              >
-                2.22
-              </Text>
-            </View>
-            <View
-              style={{
-                flexDirection: "column",
-                alignItems: "end",
-                flexGrow: 1
-              }}
-            >
-              <View style={{
-                flexDirection: "row-reverse",
-                alignItems: "center",
-                gap: 10,
-                justifyContent: "flex-end"
-              }}
-              >
-                <Text style={{
-                  fontFamily: "Formula1-Bold",
-                  color: "#f61d00",
-                  fontSize: 20,
-                  textAlign: "right"
-                }}
-                >
-                  Ferrari
-                </Text>
-                <Text style={{
-                  fontFamily: "Formula1-Regular",
-                  color: "#fff",
-                  fontSize: 15,
-                  textAlign: "right"
-                }}
-                >
-                  Leclerc
-                </Text>
-              </View>
-              <Image
-                style={{
-                  width: "100%",
-                  height: 100,
-                  transform: "scaleX(-1)",
-                  marginRight: -20
-                }}
-                contentFit="contain"
-                contentPosition="right"
-                source={CarsImages.Ferrari}
-              />
-            </View>
-          </View>
-        </View>
-        <Text style={{
-          color: "#fff",
-          fontSize: 20,
-          fontWeight: "bold",
-          textAlign: "left",
-          padding: 20
-        }}
-        >
-          Fastest pit stop: Mercedes
-        </Text>
+        <FastestPitStop />
       </View>
 
       {/* next race and link to calendar */}
+      <View
+        style={{
+          paddingVertical: 10
+        }}
+      >
+        <SubTitleWithBorder
+          titlePos="right"
+          subTitle="Next race - Round 2"
+        />
+        <Link
+          replace={TouchableOpacity}
+          to="/"
+          style={{
+            alignItems: "start",
+            paddingVertical: 20,
+            marginHorizontal: 20
+          }}
+        >
+          <>
+            <TitleWithArrow>
+              Bahrain Grand Prix
+            </TitleWithArrow>
+            <SubTitle
+              subTitle="Sun 05 of March" color="#f61d00"
+            />
+          </>
+        </Link>
+        <View style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginHorizontal: 20,
+          borderRadius: 5,
+          overflow: "hidden"
+        }}
+        >
+          <ImageN
+            resizeMode="cover"
+            style={{ width: "100%", height: 210, position: "absolute" }}
+            source={require("../assets/bg/pluses.svg")}
+          />
+          {/* <ImageN
+            resizeMode="cover"
+            style={{ width: "100%", height: 210, position: "absolute" }}
+            source={require("../assets/circuits/bahrain_flag.png")}
+          /> */}
+          <Image
+            contentFit="contain"
+            contentPosition="center"
+            style={{
+              width: "100%",
+              height: 200
+            }}
+            source={require("../assets/circuits/bahrain.png")}
+          />
+        </View>
 
+      </View>
       {/* short drivers standing  (up to 5 pos) */}
       {/* short Constructor Standings  (up to 5 pos) */}
 

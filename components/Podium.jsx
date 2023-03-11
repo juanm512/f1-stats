@@ -35,19 +35,19 @@ const Podium = (
         <View
           style={{
             width: "100%",
-            height: "90%",
+            height: "100%",
             marginTop: 10
           }}
         >
           <ImageN
             contentFit="cover"
-            style={{ width: "100%", height: "100%", borderRadius: 10, tintColor: secondPlace.team_color, position: "absolute" }}
+            style={{ width: "100%", height: "60%", borderRadius: 10, tintColor: secondPlace.team_color, position: "absolute", bottom: 0 }}
             source={linesSVG}
           />
           <Image
-            contentFit="cover"
+            contentFit="contain"
             contentPosition="bottom"
-            style={{ width: "100%", height: "100%" }}
+            style={{ minWidth: 70, height: 150 }}
             source={secondPlace.driver_image}
           />
         </View>
@@ -87,13 +87,13 @@ const Podium = (
         >
           <ImageN
             contentFit="cover"
-            style={{ width: "100%", height: "100%", borderRadius: 10, tintColor: secondPlace.team_color, position: "absolute" }}
+            style={{ width: "100%", height: "70%", borderRadius: 10, tintColor: secondPlace.team_color, position: "absolute", bottom: 0 }}
             source={linesSVG}
           />
           <Image
-            contentFit="cover"
+            contentFit="contain"
             contentPosition="bottom"
-            style={{ width: "100%", height: "100%" }}
+            style={{ minWidth: 80, height: 180 }}
             source={firstPlace.driver_image}
           />
         </View>
@@ -134,13 +134,13 @@ const Podium = (
         >
           <ImageN
             contentFit="cover"
-            style={{ width: "100%", height: "100%", borderRadius: 10, tintColor: thirdPlace.team_color, position: "absolute" }}
+            style={{ width: "100%", height: "65%", borderRadius: 10, tintColor: thirdPlace.team_color, position: "absolute", bottom: 0 }}
             source={linesSVG}
           />
           <Image
-            contentFit="cover"
+            contentFit="contain"
             contentPosition="bottom"
-            style={{ width: "100%", height: "100%", overflow: "visible" }}
+            style={{ minWidth: 60, height: "100%" }}
             source={thirdPlace.driver_image}
           />
         </View>
