@@ -1,4 +1,5 @@
-import { View, Text, Image } from "react-native"
+import { View, Text } from "react-native"
+import { Image } from "expo-image"
 import { LinearGradient } from "expo-linear-gradient"
 
 import { CarsImages } from "../utils/getImages.js"
@@ -126,6 +127,7 @@ export const FastestPitStop = ({ children }) => {
             flexGrow: 1,
             alignItems: "end",
             flexShrink: 1
+
           }}
           >
             <Image
@@ -137,6 +139,7 @@ export const FastestPitStop = ({ children }) => {
                 alignSelf: "end",
                 transform: "scaleX(-1)",
                 marginRight: -20
+
               }}
               contentFit="contain"
               contentPosition="right"

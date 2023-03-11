@@ -1,5 +1,4 @@
 import { View, ScrollView, Text, Image as ImageN, TouchableOpacity } from "react-native"
-import { Image } from "expo-image"
 import { LinearGradient } from "expo-linear-gradient"
 import { Link } from "react-router-native"
 
@@ -142,35 +141,9 @@ const Home = () => {
             />
           </>
         </Link>
-        <View style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginHorizontal: 20,
-          borderRadius: 5,
-          overflow: "hidden"
-        }}
-        >
-          <ImageN
-            resizeMode="cover"
-            style={{ width: "100%", height: 210, position: "absolute" }}
-            source={require("../assets/bg/pluses.svg")}
-          />
-          {/* <ImageN
-            resizeMode="cover"
-            style={{ width: "100%", height: 210, position: "absolute" }}
-            source={require("../assets/circuits/bahrain_flag.png")}
-          /> */}
-          <Image
-            contentFit="contain"
-            contentPosition="center"
-            style={{
-              width: "100%",
-              height: 200
-            }}
-            source={require("../assets/circuits/bahrain.png")}
-          />
-        </View>
+        <Link to="/" style={{ marginHorizontal: 20 }}>
+          <SimpleMap />
+        </Link>
 
       </View>
       {/* short drivers standing  (up to 5 pos) */}
