@@ -13,11 +13,11 @@ const Routes = [
     path: "/calendar",
     icon: <AntDesign name="calendar" size={24} color="white" />
   },
-  {
-    name: "Champions",
-    path: "/champions",
-    icon: <Entypo name="trophy" size={24} color="white" />
-  },
+  // {
+  //   name: "Champions",
+  //   path: "/champions",
+  //   icon: <Entypo name="trophy" size={24} color="white" />
+  // },
   {
     name: "Drivers",
     path: "/drivers",
@@ -32,6 +32,7 @@ const Routes = [
 
 const BottomNav = () => {
   return (
+
     <View style={styles.bottomNavBar}>
       {Routes.map((route) => (
         <BottomNavItem
@@ -50,6 +51,8 @@ export default BottomNav
 
 const styles = StyleSheet.create({
   bottomNavBar: {
+    position: "fixed",
+    bottom: 0,
     flexDirection: "row",
     // justifyContent: "space-around",
     alignItems: "center",

@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar"
 import { StyleSheet, View } from "react-native"
 import { NativeRouter, Route, Routes } from "react-router-native"
 import Constants from "expo-constants"
+import { useFonts } from "expo-font"
 
 import Home from "./pages/Home.jsx"
 import Calendar from "./pages/Calendar.jsx"
@@ -11,16 +12,23 @@ import Champions from "./pages/Champions.jsx"
 import Teams from "./pages/Teams.jsx"
 
 import BottomNav from "./components/Navigation/BottomNav"
-import TopNav from "./components/Navigation/TopNav.jsx"
+// import TopNav from "./components/Navigation/TopNav.jsx"
 
 export default function App() {
+  useFonts({
+    "Formula1-Black": require("./assets/font/Formula1-Black.ttf"),
+    "Formula1-Bold": require("./assets/font/Formula1-Bold.ttf"),
+    "Formula1-Regular": require("./assets/font/Formula1-Regular.ttf"),
+    "Formula1-Wide": require("./assets/font/Formula1-Wide.ttf")
+  })
+
   return (
     <NativeRouter>
       <StatusBar style="light" />
 
       <View style={styles.globalContainer}>
-        <TopNav />
-        <Routes>
+        {/* <TopNav /> */}
+        <Routes style={{ width: "100%", paddingBottom: 54 }}>
           <Route
             exact
             path="/"
@@ -56,7 +64,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingTop: Constants.statusBarHeight,
-    paddingBottom: 0
+    paddingBottom: 54
   }
 })
 
